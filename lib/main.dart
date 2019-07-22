@@ -8,7 +8,10 @@ class MyCalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return null;
+    return MaterialApp(
+      title: '',
+      home: Calculator(),
+    );
   }
 }
 
@@ -32,6 +35,113 @@ class _Calculator extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return null;
+    return Scaffold(
+      appBar: null,
+      backgroundColor: Colors.black,
+      body: Container(
+        margin: EdgeInsets.only(bottom: 20),
+        child: Column(
+           mainAxisAlignment: MainAxisAlignment.end,
+           children: <Widget>[
+             Row(
+               children: <Widget>[
+                 Expanded(
+                    child: Text(
+                      text,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 60
+                      ),
+                      maxLines: 1,
+                      textAlign: TextAlign.right,
+                    ),
+                 )
+               ],
+             ),
+             Row(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
+                        onPressed: () {
+
+
+                        },
+                         child: Text("C",
+                          style: TextStyle(
+                            fontSize: 30
+                          )
+                        ),
+                        color: Colors.amber,
+                      padding: EdgeInsets.all(20),
+                      shape: CircleBorder(),
+                    ),
+                    
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
+                      onPressed: () {
+
+
+                      },
+                      child: Text("C",
+                          style: TextStyle(
+                              fontSize: 30
+                          )
+                      ),
+                      color: Colors.amber,
+                      padding: EdgeInsets.all(20),
+                      shape: CircleBorder(),
+                    ),
+
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
+                      onPressed: () {
+
+
+                      },
+                      child: Text("C",
+                          style: TextStyle(
+                              fontSize: 30
+                          )
+                      ),
+                      color: Colors.amber,
+                      padding: EdgeInsets.all(20),
+                      shape: CircleBorder(),
+                    ),
+
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: RaisedButton(
+                      onPressed: () {
+
+
+                      },
+                      child: Text("C",
+                          style: TextStyle(
+                              fontSize: 30
+                          )
+                      ),
+                      color: Colors.amber,
+                      padding: EdgeInsets.all(20),
+                      shape: CircleBorder(),
+                    ),
+
+                  ),
+
+                ],
+             )
+
+           ],
+        ),
+
+      ),
+
+
+    ) ;
   }
 }
