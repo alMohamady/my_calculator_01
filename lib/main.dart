@@ -127,7 +127,7 @@ class _Calculator extends State<Calculator> {
           padding: EdgeInsets.only(bottom: 10),
           child: RaisedButton(
             onPressed: () {
-
+              calculate(btnTxt);
             },
             child: Text(btnTxt,
                 style: TextStyle(
@@ -144,7 +144,7 @@ class _Calculator extends State<Calculator> {
           padding: EdgeInsets.only(bottom: 10),
           child: RaisedButton(
             onPressed: () {
-
+              calculate(btnTxt);
             },
             child: Text(btnTxt,
                 style: TextStyle(
@@ -167,10 +167,25 @@ class _Calculator extends State<Calculator> {
        numOne = 0;
        numTwo = 0;
        result = '';
-       finalResult = '';
+       finalResult = '0';
        opr = '';
        preOpr = '';
-    } else if(txtBtn == '+' || txtBtn == '-' || txtBtn == '*' || txtBtn == '/') {
+    } else if (opr == '=' && txtBtn == '=' ){
+      switch(preOpr) {
+        case '+':
+          finalResult =  add();
+          break;
+        case '-':
+          finalResult = sub();
+          break;
+        case 'X':
+          finalResult = mul();
+          break;
+        case '/':
+          finalResult = div();
+          break;
+      }
+    } else if(txtBtn == '+' || txtBtn == '-' || txtBtn == 'X' || txtBtn == '/' || txtBtn == '=') {
 
       if (numOne == 0) {
         numOne = double.parse(result);
@@ -196,9 +211,15 @@ class _Calculator extends State<Calculator> {
       preOpr =  opr;
       opr = txtBtn;
       result = '';
+    } else if (txtBtn  == '%') {
+      result = (numOne / 100).toString();
+      finalResult = result;
     }
     else {
-      result = result + txtBtn;
+      if (result == '0')
+        result = txtBtn;
+      else
+        result = result + txtBtn;
       finalResult = result;
     }
 
