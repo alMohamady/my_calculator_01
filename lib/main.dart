@@ -214,8 +214,17 @@ class _Calculator extends State<Calculator> {
     } else if (txtBtn  == '%') {
       result = (numOne / 100).toString();
       finalResult = result;
-    }
-    else {
+    } else if (txtBtn == '.') {
+      if(!result.contains('.'))
+         result += '.';
+      finalResult = result;
+    } else if (txtBtn == '+/-') {
+
+      result.startsWith('-') ? result = result.substring(1): result = '-' + result;
+
+      finalResult = result;
+
+    } else {
       if (result == '0')
         result = txtBtn;
       else
@@ -231,25 +240,38 @@ class _Calculator extends State<Calculator> {
   String add() {
     result = (numOne + numTwo).toString();
     numOne = double.parse(result);
-    return result;
+    return decimalRemove(result);
   }
 
   String sub() {
     result = (numOne - numTwo).toString();
     numOne = double.parse(result);
-    return result;
+    return decimalRemove(result);
   }
 
   String mul() {
     result = (numOne * numTwo).toString();
     numOne = double.parse(result);
-    return result;
+    return decimalRemove(result);
   }
 
   String div() {
     result = (numOne / numTwo).toString();
     numOne = double.parse(result);
-    return result;
+    return decimalRemove(result);
   }
+
+
+  String decimalRemove(String _result) {
+
+    if (_result.contains('.')) {
+      List<String> split = _result.split('.');
+      //[11, 0]
+      if(!(int.parse(split[1]) > 0))
+          return split[0];
+    }
+    return _result;
+  }
+
 }
 
